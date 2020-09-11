@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RPS</title>
+    </head>
+    <body>
+        <script>
+            function computerPlay(){
+                let rand = getRandomInt(3);
+                switch(rand){
+                    case 0: 
+                        return "Rock";
+                        break;
+                    case 1: 
+                        return "Paper";
+                        break;
+                    case 2: 
+                        return "Scissors";
+                        break;
+                }   
+            }
+
+            function getRandomInt(max){
+                return Math.floor(Math.random() * Math.floor(max));
+            }
+            let computerSelection = computerPlay();
+            let playerSelection;
+            function playRound()
+            {
+                playerSelection = window.prompt("Play your hand!");  
+                let computer = computerPlay().toLowerCase();
+                console.log(computer);
+                let player = playerSelection.toLowerCase();
+
+                if(computer === "rock"  && player === "rock"){
+                    return "Tie!  Rock ties Rock";
+                }
+                if(computer === "paper"  && player === "paper"){
+                    return "Tie!  Paper ties Paper";
+                }
+                if(computer === "scissors"  && player === "scissors"){
+                    return "Tie!  Scissors ties Scissors";
+                }
+                else if(computer === "rock"  && player === "paper"){
+                    return "Player Wins!  Paper beats Rock";
+                }
+                else if(computer === "paper"  && player === "scissors"){
+                    return "Player Wins!  cissors beats Paper";
+                }
+                else if(computer === "scissors"  && player === "rock"){
+                    return "Player Wins!  Rock beats Scissors";
+                }
+                else if(computer === "paper"  && player === "rock"){
+                    return "Computer Wins!  Paper beats Rock";
+                }
+                else if(computer === "scissors"  && player === "paper"){
+                    return "Computer Wins!  Scissors beats Paper";
+                }
+                else if(computer === "rock"  && player === "scissors"){
+                    return "Computer Wins!  Rock beats Scissors";
+                }
+            }
+
+            function game(){
+                for (let i = 0; i < 5; i++) {
+                    console.log(playRound());
+                }
+            }
+
+        </script>
+    </body>
+</html>
